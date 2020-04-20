@@ -1,5 +1,6 @@
 import React from 'react'
 
+//筛选按钮
 class AppFooter extends React.Component {
     constructor(props) {
         super(props);

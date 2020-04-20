@@ -8,9 +8,6 @@ var styles = {
         marginRight: 20
     }
 };
-// 创建一个ref来存储textInput的DOM元素
-/*这里注意要安装uuid：npm install uuid -D*/
-/*handleSubmit：将用户输入的数据,通过uuid生成的id、输入的text、以及是否完成false,通过函数传递给父组件*/
 class AppForm extends React.Component {
     constructor(props){
         super(props);

@@ -4,7 +4,6 @@ import AppForm from './AppForm.js'
 import AppFooter from './AppFooter.js'
 
 //整体
-//OnAddTodoItem：添加事项
 class App extends React.Component {
     constructor(props){
         super(props);
