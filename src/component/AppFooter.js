@@ -10,17 +10,17 @@ class AppFooter extends React.Component {
 
     handleAll(event) {
         let all = event.target.value;
-        this.props.SubmitChooseValue(all);
+        this.props.submitChooseValue(all);
     }
 
     handleActive(event) {
         let active = event.target.value;
-        this.props.SubmitChooseValue(active);
+        this.props.submitChooseValue(active);
     }
 
     handleComplete(event) {
         let complete = event.target.value;
-        this.props.SubmitChooseValue(complete);
+        this.props.submitChooseValue(complete);
     }
 
     render() {

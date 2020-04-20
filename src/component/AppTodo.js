@@ -17,11 +17,11 @@ class AppTodo extends React.Component {
     }
 
     handleChangeComplete () {
-        this.props.ChangeCompleteItem(this.props.id);
+        this.props.changeCompleteItem(this.props.id);
     }
 
     handleDelete () {
-        this.props.DeleteItem(this.props.id);
+        this.props.deleteItem(this.props.id);
     }
     render () {
         return (

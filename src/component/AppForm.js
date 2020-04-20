@@ -17,7 +17,6 @@ class AppForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
         this.state={
-            AddTodoItem:this.props.AddTodoItem,
             tip:"",
             value:""
         }
@@ -39,7 +38,7 @@ class AppForm extends React.Component {
         this.setState({tip:''});
         //uuid
         let id=uuidV4();
-        this.state.AddTodoItem({id,text:inputValue,complete:false,deleteFlag:false});
+        this.props.addTodoItem({id,text:inputValue,complete:false,deleteFlag:false});
     }
     render () {
         return (

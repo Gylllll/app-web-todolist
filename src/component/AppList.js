@@ -5,24 +5,21 @@ import AppTodo from './AppTodo'
 class AppList extends React.Component {
     constructor(props) {
         super(props);
-        this.ChangeDone = this.ChangeDone.bind(this);
-        this.SubmitDelete = this.SubmitDelete.bind(this);
-        this.state={
-            data:this.props.data
-        }
+        this.changeDone = this.changeDone.bind(this);
+        this.submitDelete = this.submitDelete.bind(this);
     }
 
-    ChangeDone(id) {
-        this.props.ChangeComplete(id);
+    changeDone(id) {
+        this.props.changeComplete(id);
     }
 
-    SubmitDelete(id) {
-        this.props.DeleteItem(id);
+    submitDelete(id) {
+        this.props.deleteItem(id);
     }
 
     render() {
         var chooseValue = this.props.chooseValue.toString();
-        const list = this.state.data.map(({id, text, complete, deleteFlag}, index) => {
+        const list = this.props.data.map(({id, text, complete, deleteFlag}, index) => {
             if (chooseValue === '1' && deleteFlag !== true) {
                 return (
                     <AppTodo
@@ -30,8 +27,8 @@ class AppList extends React.Component {
                         id={id}
                         text={text}
                         complete={complete}
-                        ChangeCompleteItem={this.ChangeDone}
-                        DeleteItem={this.SubmitDelete}
+                        changeCompleteItem={this.changeDone}
+                        deleteItem={this.submitDelete}
                     />);
             }
 
@@ -42,8 +39,8 @@ class AppList extends React.Component {
                         id={id}
                         text={text}
                         complete={complete}
-                        ChangeCompleteItem={this.ChangeDone}
-                        DeleteItem={this.SubmitDelete}
+                        changeCompleteItem={this.changeDone}
+                        deleteItem={this.submitDelete}
                     />);
             }
 
@@ -54,8 +51,8 @@ class AppList extends React.Component {
                         id={id}
                         text={text}
                         complete={complete}
-                        ChangeCompleteItem={this.ChangeDone}
-                        DeleteItem={this.SubmitDelete}
+                        changeCompleteItem={this.changeDone}
+                        deleteItem={this.submitDelete}
                     />);
             }
 

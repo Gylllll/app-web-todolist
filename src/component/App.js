@@ -8,27 +8,27 @@ import AppFooter from './AppFooter.js'
 class App extends React.Component {
     constructor(props){
         super(props);
-        this.OnAddTodoItem=this.OnAddTodoItem.bind(this);
-        this.ChooseValue=this.ChooseValue.bind(this);
-        this.OnChangeComplete=this.OnChangeComplete.bind(this);
-        this.OnDeleteItem=this.OnDeleteItem.bind(this);
+        this.onAddTodoItem=this.onAddTodoItem.bind(this);
+        this.chooseValue=this.chooseValue.bind(this);
+        this.onChangeComplete=this.onChangeComplete.bind(this);
+        this.onDeleteItem=this.onDeleteItem.bind(this);
         this.state={
             chooseValue : 1,
-            data: this.props.data
+            data:""
         };
     }
 
-    OnAddTodoItem (newItem) {
-        let newData = this.state.data.push(newItem);
+    onAddTodoItem (newItem) {
+        let newData = this.props.data.push(newItem);
         this.setState({data:newData});
     }
 
-    ChooseValue (id) {
+    chooseValue (id) {
         this.setState({chooseValue:id});
     }
 
-    OnChangeComplete (id) {
-        let change= this.state.data.map(item=> {
+    onChangeComplete (id) {
+        let change= this.props.data.map(item=> {
             if(item.id === id) {
                 item.complete = !item.complete;
             }
@@ -37,8 +37,8 @@ class App extends React.Component {
         this.setState({data : change});
     }
 
-   OnDeleteItem (id) {
-        let del= this.state.data.map(item=> {
+   onDeleteItem (id) {
+        let del= this.props.data.map(item=> {
             if (item.id === id) {
                 item.deleteFlag = true
             }
@@ -51,13 +51,13 @@ class App extends React.Component {
         return (
             <div id='main'>
                 <h1>My TodoList with React</h1>
-                <AppForm AddTodoItem={this.OnAddTodoItem} />
-                <AppList data={this.state.data}
+                <AppForm addTodoItem={this.onAddTodoItem} />
+                <AppList data={this.props.data}
                          chooseValue={this.state.chooseValue}
-                         ChangeComplete={this.OnChangeComplete}
-                         DeleteItem={this.OnDeleteItem}
+                         changeComplete={this.onChangeComplete}
+                         deleteItem={this.onDeleteItem}
                 />
-                <AppFooter SubmitChooseValue={this.ChooseValue}/>
+                <AppFooter submitChooseValue={this.chooseValue}/>
             </div>
         )
     }
